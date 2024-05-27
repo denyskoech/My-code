@@ -39,7 +39,7 @@ let description =
   " " +
   "million people speak" +
   " " +
-  myCountrylanguage; //better way to do it might be to just console.log it and not store all of it as a var
+  myCountrylanguage;
 console.log(
   description,
   myCountryPopulation,
@@ -48,3 +48,21 @@ console.log(
   compareFinlandPopulation,
   populationComparison
 );
+
+//JS Fundamentals challenge - Part 1
+
+let markWeight = 78;
+let johnWeight = 92;
+let markHeight = 1.69;
+let johnHeight = 1.95;
+
+let markBMI = markWeight / (markHeight * markHeight);
+let johnBMI = johnWeight / (johnHeight * johnHeight);
+
+let markHigherBMI = markBMI > johnBMI;
+
+console.log(
+  "Marks BMI is" + " " + markBMI + " and Johns BMI is" + " " + johnBMI
+);
+
+console.log("Does Mark have a higher BMI than John?" + " " + markHigherBMI);
