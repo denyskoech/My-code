@@ -66,3 +66,6 @@ console.log(
 );
 
 console.log("Does Mark have a higher BMI than John?" + " " + markHigherBMI);
+
+description = `${myCountry} is in ${myContinent} and it's ${myCountryPopulation} million people speak ${myCountrylanguage}`;
+console.log(description); //always put everything in ``

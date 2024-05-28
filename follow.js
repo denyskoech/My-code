@@ -45,3 +45,65 @@ console.log(x, y); //= 10, 10 because the assignment operator works from right t
 const averageAge = ageClient + ageUser / 2; //this will produce 55.5 which does not make sense because of operatore precedence, to fix, place brackets which will be calculated first and the divided like this (ageClient + ageUser) / 2
 console.log(averageAge);
 */
+
+//Strings and template literals
+const firstName = "Dennis";
+const job = "billionaire";
+const birthYear = 2005;
+const year = 2024;
+
+const dennis =
+  "I'm " + firstName + ", a " + (year - birthYear) + " year old " + job + "!";
+console.log(dennis); // now this is how concatenation was done before ES6
+
+const dennisNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`;
+console.log(dennisNew); // using back ticks, we can utilise template literals to make life simpler
+console.log(`Just a regular Joe string... I'm I right or what?`); //using backticks to just display regular strings
+
+console.log("This is line one \n and this is \n and three"); //multiline strings in the ancient times, it is not possible to enter to the next line
+console.log(`let us 
+do something 
+different`); //just hit the enter button to go to the next line, no stress, remember to use backticks
+
+//decisions if/else
+const age = 17;
+
+if (age >= 18) {
+  console.log(`You can drive, baby!`);
+} else {
+  const yearsLeft = 18 - age;
+  console.log(`too bad but you only have ${yearsLeft} years to drive!`);
+}
+
+if (age >= 18) {
+  console.log(`You can drive, baby!`);
+} else {
+  const yearsLeft = 18 - age;
+  const monthsLeft = yearsLeft * 12;
+
+  let yearsMessage = yearsLeft === 1 ? "1 year" : `${yearsLeft} years`;
+  let monthsMessage = `${monthsLeft} months`;
+
+  // Optionally, include months in the message
+  if (monthsLeft > 0 && monthsLeft < 12) {
+    yearsMessage = monthsLeft === 1 ? "1 month" : `${monthsLeft} months`;
+  }
+
+  console.log(`Too bad, but you only have ${yearsMessage} left to drive!`);
+}
+
+/*if () {
+
+} else {
+
+}*/ //control structure and also a code block, any variable created inside a code block cannot be accesed outside of the code block
+
+const birthYear2 = 2091;
+
+let century; //defined outside, conditionally defined in the code block
+if (birthYear2 <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+console.log(century);
