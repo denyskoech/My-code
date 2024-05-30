@@ -1,3 +1,14 @@
+/*let js = "amazing";
+
+let myCountry = "Kenya";
+let myContinent = "Africa";
+let myCountryPopulation = 50000000;
+
+console.log(myCountry);
+console.log(myContinent);
+console.log(myCountryPopulation);
+*/
+
 //values and variables
 const js = "amazing";
 

@@ -1,15 +1,3 @@
-/*let js = "amazing";
-
-let myCountry = "Kenya";
-let myContinent = "Africa";
-let myCountryPopulation = 50000000;
-
-console.log(myCountry);
-console.log(myContinent);
-console.log(myCountryPopulation);
-*/
-
-/*
 //math operators
 const now = 2047; // good idea to declare 2047 as a variable to reuse
 const ageUser = now - 1991; //the equal sign is an assignment operator assigning agerUser to now - 1991
@@ -38,25 +26,24 @@ const isFullAge = ageClient >= 18; //here we have stored the results to a variab
 
 console.log(now - 1991 > now - 2024); //JS will do the math for both ages first before it can compare. Order precedence like BODMAS, find in MDN
 
-let x, y; //it is possible to declare two variables like this which are undefined
-x = y = 25 - 10 - 5; //operator precedence, math operators first and then assignment operator
-console.log(x, y); //= 10, 10 because the assignment operator works from right to left, assigning 10 to Y and since x is = to y then x also becomes 10
+let a, y; //it is possible to declare two variables like this which are undefined
+a = y = 25 - 10 - 5; //operator precedence, math operators first and then assignment operator
+console.log(a, y); //= 10, 10 because the assignment operator works from right to left, assigning 10 to Y and since x is = to y then x also becomes 10
 
 const averageAge = ageClient + ageUser / 2; //this will produce 55.5 which does not make sense because of operatore precedence, to fix, place brackets which will be calculated first and the divided like this (ageClient + ageUser) / 2
 console.log(averageAge);
-*/
 
 //Strings and template literals
-const firstName = "Dennis";
+const firstName2 = "Dennis";
 const job = "billionaire";
 const birthYear = 2005;
 const year = 2024;
 
 const dennis =
-  "I'm " + firstName + ", a " + (year - birthYear) + " year old " + job + "!";
+  "I'm " + firstName2 + ", a " + (year - birthYear) + " year old " + job + "!";
 console.log(dennis); // now this is how concatenation was done before ES6
 
-const dennisNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`;
+const dennisNew = `I'm ${firstName2}, a ${year - birthYear} year old ${job}!`;
 console.log(dennisNew); // using back ticks, we can utilise template literals to make life simpler
 console.log(`Just a regular Joe string... I'm I right or what?`); //using backticks to just display regular strings
 
@@ -107,3 +94,46 @@ if (birthYear2 <= 2000) {
   century = 21;
 }
 console.log(century);
+
+//type conversion (done manually)
+const inputYear = "1991";
+console.log(Number(inputYear)); //we have to convert the string varible into number to perform calculations
+console.log(inputYear + 18); //the result of this is a string
+console.log(Number(inputYear) + 18); //to make calculations with the string variable, we have to do this, Number has to be in caps, the N
+
+console.log(Number("Dennis")); //we will get a NaN(not a number) message when trying to convert this string to a number
+console.log(typeof inputYear);
+
+//type coercion (JS does it for us which is more common)
+console.log("I am " + 23 + " years old"); //the + sign triggers a coersion to strings, (string + number = string)
+console.log("23" - "10" - 3); //the opposite happens, JS conversts the strings to numbers
+console.log("23" * "2"); //converted to number, that is the only way the * can work
+
+let n = "1" + 1;
+n = n - 1;
+console.log(n);
+
+//truthy, falsy values(0, '', undefined, null, NaN)
+
+console.log(Boolean(0)); //0 falsy
+console.log(undefined); //falsy
+console.log("Deno"); //string truthy
+console.log({}); //object truthy
+console.log(""); //empty string falsy
+
+//the above is not how programs work, it is simply an explanation
+//below is how JS does type coersion with if else
+
+const money = 0: //zero is falsy
+if(money) {
+  console.log('You are rich');
+} else {
+  console.log('Borrow some money to become rich!');
+} //the output will be else statement
+
+let height = 0; //not the best approach 
+if (height) {
+  console.log('It is defined');
+} else {
+  console.log('Hakuna');
+}// returns else block because of 0 but it is a bug 
