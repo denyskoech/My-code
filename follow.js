@@ -185,3 +185,59 @@ if (hasDriversLicence && hasGoodVision && !isTired) {
 } else {
   console.log("Find a car seat");
 }
+
+/*Switch Statement*/
+
+const day = "monday";
+
+switch (day) {
+  case "monday": // day === 'monday'
+    console.log("I have jim");
+    break;
+  case "tueday":
+    console.log("I dont have jim");
+    break;
+  case "wedneday":
+    console.log("I will run");
+    break;
+  case "thursday":
+    console.log("I will go walking");
+    console.log("I have a meeting");
+    break;
+  case "friday":
+  case "saturday":
+    console.log("relax balls");
+    break;
+  case "sunday":
+    console.log("eat, pray");
+    break;
+  default:
+    console.log("What calendar is that?");
+}
+
+let siku = "tu";
+
+if (siku === "monday") {
+  console.log("I have jim");
+} else if (siku === "tuesday" || siku === "wednesday") {
+  console.log("the or worked");
+} else {
+  console.log("what day is that?");
+}
+
+/*Ternary operator*/
+
+const drinkAge = 23;
+
+const drink = drinkAge >= 18 ? "wine 🍷" : "water 💦"; //we store the value of expression if drinkage is above 18 into variable drink
+console.log(drink);
+
+let drink2; //declare variable outside the code block
+if (age >= 18) {
+  drink2 = "wine"; //assign the varible inside the block
+} else {
+  drink2 = "water";
+}
+console.log(drink2);
+
+console.log(`I like to drink ${drinkAge >= 18 ? "wine 🍷" : "water 💦"}`); //using ternary operator in a template literal because operators are expressions and this makes this easier for something quick
