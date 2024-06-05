@@ -124,16 +124,64 @@ console.log(""); //empty string falsy
 //the above is not how programs work, it is simply an explanation
 //below is how JS does type coersion with if else
 
-const money = 0: //zero is falsy
-if(money) {
-  console.log('You are rich');
+const money = 0; //zero is falsy
+if (money) {
+  console.log("You are rich");
 } else {
-  console.log('Borrow some money to become rich!');
+  console.log("Borrow some money to become rich!");
 } //the output will be else statement
 
-let height = 0; //not the best approach 
+let height = 0; //not the best approach
 if (height) {
-  console.log('It is defined');
+  console.log("It is defined");
 } else {
-  console.log('Hakuna');
-}// returns else block because of 0 but it is a bug 
+  console.log("Hakuna");
+} // returns else block because of 0 but it is a bug
+
+/*Equality Operators: == vs ===*/
+const myAge = 18; // if you change this value to a string, loose == will still be true
+if (myAge === 18) console.log("Strict, I never do type coersion"); //we don't always need an else statement
+
+if (myAge == 18) console.log("Loose, I do type coersion"); // try to avoid loose as much as possible
+
+const favourite = Number(prompt("What's your best shot?"));
+console.log(favourite);
+
+if (favourite === 23) {
+  // we have to convert the prompt to a number to perform strict equality
+  // '23' == 23 for loose but strict will return false
+  console.log("That is mine too");
+} else if (favourite === 7) {
+  console.log("7 is als cool");
+} else if (favourite === 9) {
+  //you can have as many as you want else if
+  console.log("Still cool");
+} else {
+  console.log("this is just dumb");
+}
+
+if (favourite !== 23) console.log("You must be kidding!"); //this is the strict version of the different operator, we are checking to see if the number is not 23
+
+/*Boolean logic, logical operators AND, OR, NOT*/
+
+const hasDriversLicence = true;
+const hasGoodVision = false;
+
+console.log(hasDriversLicence && hasGoodVision);
+console.log(hasDriversLicence || hasGoodVision);
+console.log(!hasDriversLicence);
+
+/*if (hasDriversLicence && hasGoodVision) {
+  console.log("Take the wheel");
+} else {
+  console.log("Find a car seat");
+}*/
+
+const isTired = true; //c
+console.log(hasDriversLicence || hasGoodVision || isTired);
+
+if (hasDriversLicence && hasGoodVision && !isTired) {
+  console.log("Take the wheel");
+} else {
+  console.log("Find a car seat");
+}
