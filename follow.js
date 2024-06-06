@@ -1,3 +1,4 @@
+"use strict";
 //math operators
 const now = 2047; // good idea to declare 2047 as a variable to reuse
 const ageUser = now - 1991; //the equal sign is an assignment operator assigning agerUser to now - 1991

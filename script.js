@@ -1,3 +1,4 @@
+"use strict";
 /*let js = "amazing";
 
 let myCountry = "Kenya";
