@@ -7,7 +7,7 @@ console.log(ageUser, ageClient);
 
 console.log(ageClient * 2, ageUser / 10, 2 ** 3); //2**3 means 2 to the powe of 3 which is 2 x 2 x 2
 
-const firstName = "Dennis";
+let firstName = "Dennis";
 const lastName = "Koech";
 console.log(firstName + "" + lastName); //we add an empty string to separate the variable but there is a better way of doing that using template strings
 
@@ -242,3 +242,50 @@ if (age >= 18) {
 console.log(drink2);
 
 console.log(`I like to drink ${drinkAge >= 18 ? "wine 🍷" : "water 💦"}`); //using ternary operator in a template literal because operators are expressions and this makes this easier for something quick
+
+/*Functions*/
+
+function logger() {
+  console.log("Hii ni functioni");
+}
+
+logger(); // calling the funtion
+logger(); // this funtion does not receive any data or send any, very simple funtion to log
+
+function fruitProcessor(apples, oranges) {
+  //console.log(apples, oranges);
+  const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
+  return juice;
+}
+
+const appleJuice = fruitProcessor(5, 0); // we need to store the values 5 and 0 in a variable
+console.log(appleJuice); // this returns juice with 5 and 0 values
+console.log(fruitProcessor(5, 0)); //or we can just directly log it without saving the values
+
+const orangeJuice = fruitProcessor(40, 56);
+console.log(orangeJuice); //we can reuse the funtion over and over
+
+//function declaration
+function calcAge1(birthYeah) {
+  return 2037 - birthYeah;
+}
+const age1 = calcAge1(1988); //you can call this function before it is declared
+
+//function expression
+const calcAge2 = function (birthYeah) {
+  return 2037 - birthYeah;
+};
+const age2 = calcAge2(1947);
+
+console.log(age1, age2); //you have to call the funtion expression after it has been declared
+
+//arrow function
+const calcAge3 = (birthYeah) => -birthYeah;
+const age3 = calcAge3(1991);
+console.log(age3);
+
+const yearsUntilRetirement = (birthYeah) => {
+  const age = 2037 - birthYeah;
+  const retirement = 65 - age;
+  return;
+};
