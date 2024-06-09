@@ -318,3 +318,61 @@ const yearsUntilRetirement = function (birthYeah, firstDame) {
 console.log(yearsUntilRetirement(1971, "Who"));
 
 /*ARRAYS*/
+
+const friends = ["friend1", "friend2", "friend3"]; // this is more normal, the literal syntax
+console.log(friends);
+
+const years = new Array(1991, 1998, 1369); // this is an array function because it was called using the parenthesis
+console.log(friends[0]);
+console.log(friends.length); // .length is a property
+console.log(friends[friends.length - 1]); //returns the last value of the array becuase of -1, zero based
+friends[2] = "friend4"; //broke up with friend no3 so i mutated the list to add a new friend and this because an array is not a primitive value so it means we can always mutate it
+console.log(friends);
+
+const middleName = "Cheru";
+const currentYear = 2024;
+const birthYear3 = 1923;
+const age34 = currentYear - birthYear3;
+
+const myDetails = new Array(middleName, age34, friends);
+console.log(myDetails);
+
+const calcMiaka = function (birthYeah) {
+  return currentYear - birthYeah;
+};
+
+const miaka = [1980, 1985, 1982, 1975];
+
+const miaka1 = calcMiaka(miaka[0]);
+const miaka2 = calcMiaka(miaka[miaka.length - 1]);
+
+console.log(miaka1, miaka2);
+
+const mamiaka = [
+  calcMiaka(miaka[0]),
+  calcMiaka(miaka[2]),
+  calcMiaka(miaka[3]),
+  calcMiaka(miaka[miaka.length - 1]),
+]; //since a variable and an array can hold expressions, you can do the calculations in the array and store them in a variable
+console.log(mamiaka);
+
+const newLength = friends.push("friend5"); // .push is a method which is technically a function which call directly on the friends array, this method adds an element at the end
+//since push is a funtion, it also returns a value which is a new length which we can capture in a variable but this is not normal
+friends.unshift("Friend0"); //add element to the beginning
+const popped = friends.pop(); //removes the last element in the array, if you do it twice, it removes 2 elements, you can save it to see which element got popped
+const shifted = friends.shift(); //will remove the first element
+
+console.log(shifted);
+console.log(friends.indexOf("friend1")); //to see the position of a known element in the array
+console.log(friends.includes("bob")); //returns a boolean value
+
+friends.push("Bob");
+
+if (friends.includes("Bob")) {
+  const friendLength = friends.indexOf("Bob");
+  console.log(`You have a friend called ${friends[friends.length - 1]}`); //awesome, I thought of this all by myself
+}
+
+const jonas = {
+  first,
+};
