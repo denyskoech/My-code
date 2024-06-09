@@ -145,7 +145,7 @@ if (myAge === 18) console.log("Strict, I never do type coersion"); //we don't al
 
 if (myAge == 18) console.log("Loose, I do type coersion"); // try to avoid loose as much as possible
 
-const favourite = Number(prompt("What's your best shot?"));
+/*const favourite = Number(prompt("What's your best shot?"));
 console.log(favourite);
 
 if (favourite === 23) {
@@ -162,7 +162,7 @@ if (favourite === 23) {
 }
 
 if (favourite !== 23) console.log("You must be kidding!"); //this is the strict version of the different operator, we are checking to see if the number is not 23
-
+*/
 /*Boolean logic, logical operators AND, OR, NOT*/
 
 const hasDriversLicence = true;
@@ -373,6 +373,54 @@ if (friends.includes("Bob")) {
   console.log(`You have a friend called ${friends[friends.length - 1]}`); //awesome, I thought of this all by myself
 }
 
-const jonas = {
-  first,
-};
+const deno = {
+  firstName: "Dennis",
+  lastName: "SB",
+  akoNaDL: false,
+  birthYear: 1991,
+  mabeshte: ["Jonte", "Mike", "Brayo"],
+
+  /*  calAge: function (birthYear) {
+    return 2024 - birthYear;
+  }, //we use function expression and not funtion declaration*/
+
+  /*calAge: function () {
+    return 2024 - this.birthYear; //this to refer to the birthyear in this object
+  },*/
+
+  calAge: function () {
+    this.age = 2037 - this.birthYear; // we create a new property here and set it to the expression
+    return this.age;
+  },
+}; //most basic way of creating an object, object literals
+
+console.log(deno.lastName); // using the dot notation to retrieve values
+console.log(deno["lastName"]); //using bracket notation, we can put any expresions here
+
+const nameKey = "Name";
+console.log(deno["first" + nameKey]);
+console.log(deno["last" + nameKey]); // use bracket notation when you need to compute
+
+const interestedIn = prompt("What do you want to know?");
+
+if (deno[interestedIn]) {
+  console.log(deno[interestedIn]);
+} else {
+  console.log("Oh Reary?");
+}
+
+deno.location = "Mars"; //adding an object using dot notation
+deno["twitter"] = "@sbP"; //adding an object using brackets
+
+console.log(
+  `${deno.lastName} has ${deno.mabeshte.length} friends and his best friends is called ${deno.mabeshte[1]}`
+);
+
+console.log(deno.calAge(1991));
+console.log(deno["calAge"](1992)); //calcAge needs to be a string in brackect notation
+
+console.log(
+  `${deno.lastName} is a ${deno.calAge()} old student and he ${
+    deno.akoNaDL ? "has a driving license" : "does not have a driving licence"
+  }`
+);
