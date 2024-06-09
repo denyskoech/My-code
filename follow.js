@@ -252,11 +252,19 @@ function logger() {
 logger(); // calling the funtion
 logger(); // this funtion does not receive any data or send any, very simple funtion to log
 
+function cutFruitPieces(fruit) {
+  return fruit * 4;
+}
+
 function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples);
+  const orangePieces = cutFruitPieces(oranges);
   //console.log(apples, oranges);
-  const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
+  const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
   return juice;
 }
+
+console.log(fruitProcessor(2, 3));
 
 const appleJuice = fruitProcessor(5, 0); // we need to store the values 5 and 0 in a variable
 console.log(appleJuice); // this returns juice with 5 and 0 values
@@ -280,12 +288,33 @@ const age2 = calcAge2(1947);
 console.log(age1, age2); //you have to call the funtion expression after it has been declared
 
 //arrow function
-const calcAge3 = (birthYeah) => -birthYeah;
+const calcAge3 = (birthYeah) => 2038 - birthYeah;
 const age3 = calcAge3(1991);
 console.log(age3);
 
-const yearsUntilRetirement = (birthYeah) => {
-  const age = 2037 - birthYeah;
+/*const yearsUntilRetirement = (birthYeah, firstDame) => {
+  const age = 2057 - birthYeah;
   const retirement = 65 - age;
-  return;
+  return `${firstDame} retires in ${retirement} years`;
 };
+*/
+const calcAge = function (birthYeah) {
+  return 2055 - birthYeah;
+};
+
+const yearsUntilRetirement = function (birthYeah, firstDame) {
+  const age = calcAge(birthYeah);
+  const retirement = 65 - age;
+
+  if (retirement > 0) {
+    console.log(`${firstDame} retires in ${retirement} years`);
+    return retirement;
+  } else {
+    console.log(`${firstDame} has gone home!`);
+    return retirement;
+  }
+};
+
+console.log(yearsUntilRetirement(1971, "Who"));
+
+/*ARRAYS*/

@@ -119,3 +119,26 @@ console.log(
     bill + tip
   }`
 );
+
+const calcAverage = (a, b, c) => (a + b + c) / 3;
+
+let scoreDolphin = calcAverage(44, 23, 71);
+let scoreKoala = calcAverage(85, 54, 41);
+
+const checkWinner = function (avgDolphins, avgKoalas) {
+  if (avgDolphins >= 2 * avgKoalas) {
+    console.log(`Dolphins win (${avgDolphins} vs ${avgKoalas})`);
+  } else if (avgKoalas >= 2 * avgDolphins) {
+    console.log(`Koalas win (${avgKoalas} vs ${avgDolphins})`);
+  } else {
+    console.log(
+      `No team wins... (Dolphins ${avgDolphins} vs Koalas ${avgKoalas})`
+    );
+  }
+};
+
+checkWinner(scoreDolphin, scoreKoala);
+
+scoreDolphin = calcAverage(85, 54, 41);
+scoreKoala = calcAverage(23, 34, 27);
+checkWinner(scoreDolphin, scoreKoala);
