@@ -424,3 +424,72 @@ console.log(
     deno.akoNaDL ? "has a driving license" : "does not have a driving licence"
   }`
 );
+
+/*LOOPS*/
+
+//for loop keeps running while the condition is true
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`You are on rep ${rep}`);
+} //we store the reps in a let var because it will be updated with each loop
+
+//looping through an array
+
+const forArray = ["sp", "sb", 7, "shesw", ["Mike", "sho", "dat"]];
+const types = [];
+
+for (let i = 0; i < forArray.length; i++) {
+  //to get the arrays auto from JS
+  console.log(forArray[i]);
+  //filling an array 2 ways
+  //types.[i] = typeof forArray[i];
+  types.push(typeof forArray[i]);
+}
+
+const maYears = [1992, 1982, 1983, 1974];
+const maAges = [];
+
+for (let i = 0; i < maYears.length; i++) {
+  maAges.push(2024 - maYears[i]);
+}
+
+console.log(maAges);
+
+for (let i = 0; i < forArray.length; i++) {
+  if (typeof forArray[i] !== "string") {
+    //if we set it to === string then it will skip the string
+    continue;
+  }
+  console.log(forArray[i], typeof forArray[i]);
+}
+
+for (let i = 0; i < forArray.length; i++) {
+  if (typeof forArray[i] === "number") {
+    // this will print out strings
+    break; //stops when it finds a number, it does not execute the iteration that has a number
+  }
+  console.log(forArray[i], typeof forArray[i]);
+}
+
+for (let i = forArray.length - 1; i >= 0; i--) {
+  console.log(i, forArray[i]);
+}
+
+//loop inside loop
+for (let exercise = 1; exercise <= 5; exercise++) {
+  console.log(`You doing exercise ${exercise}`);
+  for (let rep = 1; rep <= 5; rep++) {
+    console.log(`You are on rep ${rep}`);
+  }
+}
+
+//while loop
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+  console.log(`you rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) {
+    console.log(`Your loop ended...`);
+  }
+}
