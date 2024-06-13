@@ -181,3 +181,15 @@ if (john.bmi > mark.bmi) {
     `${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})!`
   );
 }
+
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+
+console.log(Person);
+
+const myDad = new Person("John");
+console.log(myDad.firstName);
