@@ -12,19 +12,24 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1; //*20 gives us a range of
 let score = 20;
 let highScore = 0;
 
+const displayMessage = function (message) {
+  document.querySelector('.message').textContent = message;
+};
+
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
 
   //When there is no input
   if (!guess) {
-    document.querySelector('.message').textContent = 'Are you sure?';
+    //document.querySelector('.message').textContent = 'Are you sure?';
+    displayMessage('Are you sure!');
   }
 
   //when the player wins
   else if (guess === secretNumber) {
-    document.querySelector('.message').textContent = 'Wazi buda!';
-
+    //document.querySelector('.message').textContent = 'Wazi buda!';
+    displayMessage('Wazi Buda!');
     document.querySelector('body').style.backgroundColor = '#60b347'; //css in JS needs to be in camel case and always specify with a string
 
     document.querySelector('.number').style.width = '30rem'; //30rem has to be a string, in quotes and this is inline css
