@@ -21,4 +21,11 @@ for (i = 0; i < btnsOpenModal; i++) {
 
   btnCloseModal.addEventListener('click', closeModal);
   overLay.addEventListener('click', closeModal);
+
+  //listen for esc key press
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal(); //you need to call the class here
+    }
+  });
 }
