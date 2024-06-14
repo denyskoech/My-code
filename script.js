@@ -193,3 +193,25 @@ console.log(Person);
 
 const myDad = new Person("John");
 console.log(myDad.firstName);
+
+function pickRandomNumber(num1, num2) {
+  // Generate a random number between 0 and 1
+  let randomValue = Math.random();
+
+  // Convert the random value to either 0 or 1
+  // Multiply by 2 and take the floor to get 0 or 1
+  let randomIndex = Math.floor(randomValue * 2);
+
+  // Use the random index to select num1 or num2
+  if (randomIndex === 0) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
+
+// Example usage:
+let number1 = 12;
+let number2 = 17;
+let result = pickRandomNumber(number1, number2);
+console.log(`Randomly picked number: ${result}`);
