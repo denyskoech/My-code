@@ -17,7 +17,7 @@ const openModal = function () {
 
 for (i = 0; i < btnsOpenModal; i++) {
   //we don't really need {}
-  btnsOpenModal[i].addEventListener('click', openModal); //don\t call the class with brackets
+  btnsOpenModal[i].addEventListener('click', openModal); //don't call the class with brackets, this openModal function is a first clas function, treated as a variable
 
   btnCloseModal.addEventListener('click', closeModal);
   overLay.addEventListener('click', closeModal);
