@@ -559,12 +559,17 @@ const jumuishaMiakaMshale = (birthYear) => {
 jumuishaMiakaMshale(); //this keyword will return the global lexical scope/ its parent which in this case is the window object. Arrows do not get their own functions so this points to the this keyword in line 547 which is global
 
 const jona = {
+  firstName: "Yonas",
   year: 1992,
   calcAge: function () {
     console.log(this);
     console.log(2034 - this.year); //this is how we use this keyword
   },
+
+  greet: () => console.log(`Niaje ${this.firstName}`), // never ever use arrows as methods
 };
+jona.greet(); //we get undefined and not an error because it looks for this keyword in the global scope (probably from line 547) and not from the object literal which we might assume is a code block
+//if we declare a variable firstName with var, remember var creates a property in the global window and now this keyword will go and search for this.firstName in the global window and find the var declared, it is like saying window.firstName
 jona.calcAge(); //will return this jona object, this is the method call
 
 const matilda = {
