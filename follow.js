@@ -541,3 +541,38 @@ const z = 3;
 console.log(f === window.f); //returns true because var creates a property in the global window object on the browser
 console.log(g === window.g); //false
 console.log(z === window.z); //false
+
+/*The this keyword */
+
+console.log(this); // this is the window object
+
+const jumuishaMiaka = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this);
+};
+jumuishaMiaka(); //this keyword returns undefined because it gets it's own this keyword and in this case, it is undefined
+
+const jumuishaMiakaMshale = (birthYear) => {
+  console.log(2923 - birthYear);
+  console.log(this);
+};
+jumuishaMiakaMshale(); //this keyword will return the global lexical scope/ its parent which in this case is the window object. Arrows do not get their own functions so this points to the this keyword in line 547 which is global
+
+const jona = {
+  year: 1992,
+  calcAge: function () {
+    console.log(this);
+    console.log(2034 - this.year); //this is how we use this keyword
+  },
+};
+jona.calcAge(); //will return this jona object, this is the method call
+
+const matilda = {
+  year: 1994,
+};
+
+matilda.calAge = jona.calcAge; //we copied the function from jona to matilda, this is called method borrowing
+matilda.calAge(); //this keyword always points to the method that is calling it that is why it is dynamic and not static
+
+const f = jona.calcAge;
+f(); //now this becomes a regular function, not attached to any object and it will return an undefined value
