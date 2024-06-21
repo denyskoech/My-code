@@ -22,6 +22,14 @@ const scores = [0, 0]; //store playscores here to keep track of who is playing a
 let currentScore = 0;
 let activePlayer = 0;
 
+const switchPlayer = function () {
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0; //ternary operator use to switch players
+  currentScore = 0;
+  player0El.classList.toggle('player--active'); // introduced toggle to changes the style back and forth instead of adding and removing
+  player1El.classList.toggle('player--active');
+};
+
 //rolling dice functionality
 btnRoll.addEventListener('click', function () {
   //1. generate a random dice roll
@@ -39,10 +47,29 @@ btnRoll.addEventListener('click', function () {
       currentScore;
   } else {
     //switch to the next player
-    document.getElementById(`current--${activePlayer}`).textContent = 0;
-    activePlayer = activePlayer === 0 ? 1 : 0;
-    currentScore = 0;
-    player0El.classList.toggle('player--active');
-    player1El.classList.toggle('player--active');
+    switchPlayer();
+  }
+});
+
+//add an event listener to track total scores of each player
+btnHold.addEventListener('click', function () {
+  //1. Add current score to active player's score
+  scores[activePlayer] += currentScore;
+  // scores[1] = scores[1] + currentScore
+  document.getElementById(`score--${activePlayer}`).textContent =
+    scores[activePlayer];
+
+  //2. Check if the player's score is >= 100, if so, finsh game
+  if (scores[activePlayer] >= 50) {
+    //Finish the game
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.add('player--winner');
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove('player--active');
+  } else {
+    //3. Switch to the next player
+    switchPlayer();
   }
 });
