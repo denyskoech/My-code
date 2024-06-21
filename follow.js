@@ -493,3 +493,33 @@ while (dice !== 6) {
     console.log(`Your loop ended...`);
   }
 }
+
+/*Hoisting and TDZ */
+
+//hoisting with variables
+console.log(me); //we get undefined
+console.log(job); //this is in the TDZ
+console.log(year); //in the TDZ
+
+var me = "yonas";
+let job = "odijo";
+const year = 1991;
+
+//hoisting with functions
+
+console.log(hoisting(3, 2)); //function declarations are hoisted to the top
+console.log(funExp(2, 4)); // function expression, this is simply a variable and this is the TDZ
+console.log(arrowFunc(2, 5)); // function expression, this is simply a variable and this is the TDZ
+console.log(arrowFuncVar(2, 4)); // returns is not a funtion, we are trying to use and undefined function
+
+function hoisting(a, b) {
+  return a + b;
+} //function declarition
+
+const funExp = function (a, b) {
+  return a + b;
+};
+
+const arrowFunc = (a, b) => a + b;
+
+var arrowFuncVar = (a, b) => a + b;
