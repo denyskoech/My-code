@@ -114,3 +114,38 @@ var addRow = (a, b) => {
   return a + b;
 };
 addRow(2, 3, 4); // arrow functions do not have access to arguments keyword
+
+/*Primitives vs reference types */
+
+let age = 30;
+let oldAge = age; //stored original age in oldAge before changing it at this point in time
+age = 31; //when you log age, it will show this new age but oldAge will show the original age
+
+const me = {
+  name: "Yona",
+  age: 30,
+};
+
+const friend = me;
+friend.age = 27; //this will change age for both me and friend objects
+
+const jessica = {
+  firstName: "Jessica",
+  lastName: "Willims",
+  age: 28,
+};
+
+const jessica2 = {
+  firstName: "Jessica",
+  lastName: "Willims",
+  age: 28,
+  family: ["Alice", "Wewe"], // deeply nested
+};
+
+//copying an object
+const jessicaCopy = Object.assign({}, jessica2); // create an empty array to have the contents of jessica2 copied and the store this as a variable. This creates a new object in the heap
+jessicaCopy.lastName = "Davis"; //now we can change the last name in the copied version while still preserving the first one
+//object.assign is a shallow copy, nested objects like an array cannot be manipulated as they are on the second level, it only works on the first level, we will need an external library like lodash to have a deep copy. if you change the values of the array friends, it will be changed in both
+
+jessicaCopy.family.push("mary");
+jessicaCopy.family.push("wewe"); //adds to both copies of the objects but we need a deep clone to make this work with lodash
