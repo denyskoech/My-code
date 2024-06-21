@@ -523,3 +523,21 @@ const funExp = function (a, b) {
 const arrowFunc = (a, b) => a + b;
 
 var arrowFuncVar = (a, b) => a + b;
+
+//example
+
+if (!numProducts) deleteShopping(); //since undefined is a falsy value, it will go ahead and execute the function which is dangerous
+
+var numProducts = 10;
+
+function deleteShopping() {
+  console.log("Zimeenda zote");
+}
+
+var f = 1;
+let g = 2;
+const z = 3;
+
+console.log(f === window.f); //returns true because var creates a property in the global window object on the browser
+console.log(g === window.g); //false
+console.log(z === window.z); //false
