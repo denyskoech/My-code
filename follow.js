@@ -373,6 +373,8 @@ if (friends.includes("Bob")) {
   console.log(`You have a friend called ${friends[friends.length - 1]}`); //awesome, I thought of this all by myself
 }
 
+/*OBJECTS*/
+
 const deno = {
   firstName: "Dennis",
   lastName: "SB",
@@ -389,7 +391,7 @@ const deno = {
   },*/
 
   calAge: function () {
-    this.age = 2037 - this.birthYear; // we create a new property here and set it to the expression
+    this.age = 2037 - this.birthYear; // we create a new property (age) here and set it to the expression, this will ensure that we do not calculate the age each time the function is called, it can be tedious for bigger programs, this is the most efficient way
     return this.age;
   },
 }; //most basic way of creating an object, object literals
@@ -397,16 +399,17 @@ const deno = {
 console.log(deno.lastName); // using the dot notation to retrieve values
 console.log(deno["lastName"]); //using bracket notation, we can put any expresions here
 
-const nameKey = "Name";
+const nameKey = "Name"; // to store and retrieve both names, follow below
 console.log(deno["first" + nameKey]);
 console.log(deno["last" + nameKey]); // use bracket notation when you need to compute
 
-const interestedIn = prompt("What do you want to know?");
+const interestedIn = prompt("What do you want to know?"); // ask user to input a value that exists inside the object
 
 if (deno[interestedIn]) {
+  //if user picks an existing property in the object, it shows the value of the object
   console.log(deno[interestedIn]);
 } else {
-  console.log("Oh Reary?");
+  console.log("Oh Reary?"); // if user picks a non existing property in the object, they receive the prompt
 }
 
 deno.location = "Mars"; //adding an object using dot notation
@@ -416,7 +419,7 @@ console.log(
   `${deno.lastName} has ${deno.mabeshte.length} friends and his best friends is called ${deno.mabeshte[1]}`
 );
 
-console.log(deno.calAge(1991));
+console.log(deno.calAge(1991)); //calling the property calAge just like a normal function
 console.log(deno["calAge"](1992)); //calcAge needs to be a string in brackect notation
 
 console.log(
