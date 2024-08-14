@@ -505,8 +505,8 @@ console.log(job); //this is in the TDZ
 console.log(year); //in the TDZ
 
 var me = "yonas";
-let job = "odijo";
-const year = 1991;
+let job1 = "odijo";
+const year1 = 1991;
 
 //hoisting with functions
 
