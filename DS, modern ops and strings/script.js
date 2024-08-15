@@ -89,3 +89,50 @@ for (const [i, el] of menu.entries()) {
 }
 
 console.log([...menu.entries()]); //use the spread to expand and put them into an array after that to be able to view them
+
+/**optional chaining */
+
+console.log(restaurant.openingHours?.mon?.open); //we can even start by checking if opening hours exists even before we check for opening hours for monday
+console.log(restaurant.openingHours.mon?.open); //checks the left side of the operator and only if it exists, it is read
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed'; //when you want to use a variable as a property name, wrap the variable in []. We use the coelescing operator because of the problem of 0 being falsy when checking if restaurant is open and if not, we say closed
+  console.log(`on ${day}, we are open at ${open}`);
+}
+
+//in arrays
+const users = [{ name: 'Jonas', email: 'jonas@me.you' }];
+
+console.log(user[o]?.name ?? 'User array empty'); //if the property name exists, it will log it otherwise, we use the coelescing operator to log something else
+
+/**SETS */
+
+const orderSet = new set([
+  'pasta',
+  'pizza',
+  'pizza',
+  'risotto',
+  'pasta',
+  'pizza',
+]);
+
+console.log(orderSet); // logs on three items, the unique items
+console.log(new set('Jonas')); //strings are iterables as well, this logs individual letters
+console.log(orderSet.size); //checks the size which is 3 becuase it only shows the unique values
+console.log(orderSet.has); //this method checks if the set has something
+orderSet.add('garlic bread');
+
+for (const order of orderSet) console.log(order); //we can loop through sets, it is an iterable
+
+//example of how to use sets, getting unique values from an array and putting them back in a new array
+const staff = ['waiter', 'chef', 'manager', 'waiter', 'chef', 'waiter'];
+const staffUnique = [...new set(staff)]; //copied the staff array into this set and used the spread operator to unpack it into a new array and store it in the variable
+console.log(staffUnique);
+
+//or, we could just use size to count how many unique values there are
+console.log(
+  new set(['waiter', 'chef', 'manager', 'waiter', 'chef', 'waiter']).size
+);
+console.log(new set('jonas').size); //we can count how many letters there are in this string
