@@ -252,12 +252,85 @@ const { language, programmingLanguage = ['Unknown'] } = books[6];
 let bookTitle = 'unknown';
 let bookAuthor = 'unknown';
 
-({title: bookTitle, author: bookAuthor}) = books[0];
+// ({title: bookTitle, author: bookAuthor}) = books[0];
 
+const {
+  thirdParty: {
+    goodreads: { rating: bookRating },
+  },
+} = books[0];
 
-
-const {thirdParty: {goodreads: {rating: bookRating}}} = books[0];
-
-function printBookInfo (title, author, year = 'year unknown') {
-console.log(`${title} by ${author}, ${year}`);
+function printBookInfo(title, author, year = 'year unknown') {
+  console.log(`${title} by ${author}, ${year}`);
 }
+
+//Coding challenge
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const [player1, player2] = game.players; //destructuring the array, order based, 1 array with 2 sub array
+
+const [gk, ...fieldPlayers] = player1; //utilized rest operator to list the rest of the players
+
+console.log(gk, fieldPlayers);
+
+const allPlayers = [...player1, ...player2]; //combined 2 arrays into one
+
+console.log(allPlayers);
+
+const finalPlayers1 = ['Thiago', 'Coutinho', 'Perisic', ...player1]; //the spread operator in action
+
+console.log(finalPlayers1);
+
+const {
+  odds: { team1, x: draw, team2 },
+} = game; //destructuring deeply nested objects into 3 variables
+
+const printGoals = function (...players) {
+  // used rest operator
+  console.log(`${players.length} goals were scored by ${game.scored}`);
+};
+
+printGoals(...game.scored); // use spread to take out the players in the array to give us the correct number
+
+team1 < team2 && console.log('Team 1 is more likely to win'); //if the left hand side of the operator is true, then console.log, if false, nothing happens
+team1 > team2 && console.log('Team 2 is more likely to win');

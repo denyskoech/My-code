@@ -37,11 +37,15 @@ const restaurant = {
     time = '20:00',
     address,
   }) {
-    console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address``} at ${time}`);
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${
+        this.mainMenu[mainIndex]
+      } will be delivered to ${address``} at ${time}`
+    );
   },
 };
 
-restaurant.orderDelivery ({
+restaurant.orderDelivery({
   time: '22:30',
   address: 'Via del sole, 21',
   mainIndex: 2,
@@ -53,15 +57,15 @@ restaurant.orderDelivery ({
 let a = 111;
 let b = 999;
 
-const obj = {a:23, b:7, c:24};
+const obj = { a: 23, b: 7, c: 24 };
 
- ({a, b}) = obj; 
+//  ({a, b}) = obj;
 
- //the spread operator
+//the spread operator
 
- const arre = [8, 7, 3];
+const arre = [8, 7, 3];
 
- const newArre = [1,2,3, ...arre]; 
+const newArre = [1, 2, 3, ...arre];
 
 const add = function (...numbers) {
   let sum = 0;
