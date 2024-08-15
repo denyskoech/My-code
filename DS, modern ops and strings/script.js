@@ -27,30 +27,30 @@ const restaurant = {
     },
   },
 
-  order: function (starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },
+  // order: function (starterIndex, mainIndex) {
+  //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  // },
 
-  orderDelivery: function ({
-    starterIndex = 1,
-    mainIndex = 0,
-    time = '20:00',
-    address,
-  }) {
-    console.log(
-      `Order received! ${this.starterMenu[starterIndex]} and ${
-        this.mainMenu[mainIndex]
-      } will be delivered to ${address``} at ${time}`
-    );
-  },
+  // orderDelivery: function ({
+  //   starterIndex = 1,
+  //   mainIndex = 0,
+  //   time = '20:00',
+  //   address,
+  // }) {
+  //   console.log(
+  //     `Order received! ${this.starterMenu[starterIndex]} and ${
+  //       this.mainMenu[mainIndex]
+  //     } will be delivered to ${address``} at ${time}`
+  //   );
+  // },
 };
 
-restaurant.orderDelivery({
-  time: '22:30',
-  address: 'Via del sole, 21',
-  mainIndex: 2,
-  starterIndex: 2,
-});
+// restaurant.orderDelivery({
+//   time: '22:30',
+//   address: 'Via del sole, 21',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
 
 //mutating variables in objects
 
@@ -72,3 +72,20 @@ const add = function (...numbers) {
   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
   console.log(sum);
 };
+
+/**the for of loop */
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+for (const item of menu.entries()) {
+  //this creates an array for each element
+  console.log(`${item[0] + 1}: ${item[1]}`); //+ 1 because we are displaying the position at the restaurant from number 1 not 0
+} //this is to get the index of the elements as well using entries
+
+for (const [i, el] of menu.entries()) {
+  // now we destructred items into i and el because entries create an array for every element
+  console.log(`${i + 1}: ${el}`);
+}
+
+console.log([...menu.entries()]); //use the spread to expand and put them into an array after that to be able to view them
