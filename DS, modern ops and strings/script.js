@@ -136,3 +136,8 @@ console.log(
   new set(['waiter', 'chef', 'manager', 'waiter', 'chef', 'waiter']).size
 );
 console.log(new set('jonas').size); //we can count how many letters there are in this string
+
+/**MAPS */
+
+const rest = new Map(); //easiet way to create a map is creating an empyt map without passing anything in it and using the set method to pass arguments as the next line
+rest.set();
