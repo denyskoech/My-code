@@ -1,6 +1,6 @@
 "use strict";
 
-//Default parameters
+/*Default parameters*/
 const bookings = []; //push the results into this array
 
 const createBooking = function (
@@ -22,7 +22,7 @@ const createBooking = function (
   bookings.push(booking);
 };
 
-//Passing arguments working in functions: primitives and reference
+/*Passing arguments working in functions: primitives and reference*/
 
 const flight = "LH234";
 const jonas = {
@@ -36,12 +36,33 @@ const checkIn = function (flightNum1, passenger) {
   passenger.name = "Mr. " + passenger.name; //ref type, changing the copy changes the original as well, stored in the heap
 
   if (passenger.passport === 2345467465) {
-    alert("Checked in");
-  } else {
-    alert("Wrong passport");
+    //   alert("Checked in");
+    // } else {
+    //   alert("Wrong passport");
   }
 };
 
 checkIn(flight, jonas);
 console.log(flight); //returns original flight number
 console.log(jonas); //returns object plus MR included
+
+/*higher order functions, Callback*/
+const oneWord = function (str) {
+  return str.replace(/ /g, "").toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(" "); //some destructuring here, rest operator and string methods, create a space in the string, spaces are values too
+  return [first.toUpperCase(), ...others].join(" "); //create a space here, spaces are values too
+};
+console.log(`noma: ${upperFirstWord("ngori")}`);
+
+//higher order function
+const transformer = function (str, fn) {
+  console.log(`Original message ${str}`);
+  console.log(`Transformed message: ${fn(str)}`); //call back happens here as fn
+  console.log(`Courtesy of: ${fn.name}`); //functions have properties too, here the name is either oneWord or UpperFirstWord
+};
+
+transformer("Javascript is hard", upperFirstWord); //how to call callback functions, we tell JS to call it later which will happen in the tranformer function
+transformer("Javascript is hard", oneWord); //oneWord is the callback function and tranform is the higher order function
