@@ -79,3 +79,6 @@ const greetHey = greet("Hey"); //this is essentially the returned function, the 
 greetHey("Jonas");
 
 greet("Hello")("Jonas"); // we can also call both functions this way
+
+//with arrow function
+const greetArrow = (greeting) => (name) => console.log(`${greeting} ${name}`); //no need of the curly braces, just immediatly return the results
