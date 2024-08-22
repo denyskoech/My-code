@@ -82,3 +82,44 @@ greet("Hello")("Jonas"); // we can also call both functions this way
 
 //with arrow function
 const greetArrow = (greeting) => (name) => console.log(`${greeting} ${name}`); //no need of the curly braces, just immediatly return the results
+
+/*The call and apply methods */
+
+const kenyaAirways = {
+  airline: "Kenya Airways",
+  iataCode: "KQ",
+  bookings: [],
+  book(flightNum2, name2) {
+    console.log(
+      `${name2} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum2}`
+    );
+
+    this.bookings.push({ flight: `${this.iataCode}${flightNum2}`, name2 });
+  },
+};
+
+kenyaAirways.book(234, "mimi wewe");
+
+//KQ created a new airline, wants bookings for them
+const safariLink = {
+  airline: "Safari Link",
+  iataCode: "SJ",
+  bookings: [],
+};
+
+const newBooking = kenyaAirways.book; //instead of copying the whole function to the safariLink object(bad practice) we simply store the method in an external function as a new variable and so now we can reuse it because JS has first class functions
+// when we want the this keyword to point to either kenyaAirways or safariLink, we have the methods for functions to do that, (call, apply, bind)
+//newBooking(23, 'Jdfs') this won't work, this points to undefined
+
+//call() method
+newBooking.call(safariLink, 23, "adwrwr"); //we use call to call newBooking function with this keyword pointing to safariLink and then the arguments passed
+newBooking.call(kenyaAirways, 234, "weka weka"); /////property names in all objects utilizing newBooking function have to have the same names
+
+console.log(kenyaAirways);
+
+//apply() method,
+const flightData = [453, "George Pooper"]; //apply takes data from an array, it does not receive a list of arguments after the this keyword
+newBooking.apply(safariLink, flightData); //so list the function, the apply method, the object and the array but this is no longer in use in JS
+//instead, we use the spread operator as such below
+newBooking.call(safariLink, ...flightData); //spread the array in as args, spread unpacks arrays into individual elements so it makes it possible to use call method and spread the array just as a value
+console.log(safariLink);
