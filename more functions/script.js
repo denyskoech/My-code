@@ -66,3 +66,16 @@ const transformer = function (str, fn) {
 
 transformer("Javascript is hard", upperFirstWord); //how to call callback functions, we tell JS to call it later which will happen in the tranformer function
 transformer("Javascript is hard", oneWord); //oneWord is the callback function and tranform is the higher order function
+
+/*Functions returning functions */
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`); //because of closures, we are able to call the greeting function from greeterHey
+  };
+};
+
+const greetHey = greet("Hey"); //this is essentially the returned function, the results of the function returned
+greetHey("Jonas");
+
+greet("Hello")("Jonas"); // we can also call both functions this way
