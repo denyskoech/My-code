@@ -155,8 +155,18 @@ const addVAT = addTax.bind(null, 0.23); //we use null to replace the this keywor
 
 console.log(addVAT(100));
 
+//same thing but as a function returning a function
 const highAddTax = (rate) => (value) => value + value * rate;
 
 const partialRate = highAddTax(0.23);
 
 console.log(partialRate(100));
+
+/*Immediately invoked function expressions */
+
+(function () {
+  console.log("I am never gonna run again"); //the fucntion value
+})(); //we wrap this function in a bracket to trick JS otherwise it expects a name attached to the function and at the end of the function, we immediately call it
+
+//as an arro function
+(() => console.log("Never gonna run as straight as an arrow"))();
