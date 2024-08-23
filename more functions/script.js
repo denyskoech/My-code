@@ -83,7 +83,7 @@ greet("Hello")("Jonas"); // we can also call both functions this way
 //with arrow function
 const greetArrow = (greeting) => (name) => console.log(`${greeting} ${name}`); //no need of the curly braces, just immediatly return the results
 
-/*The call and apply methods */
+/*The call, bind and apply methods */
 
 const kenyaAirways = {
   airline: "Kenya Airways",
@@ -123,3 +123,40 @@ newBooking.apply(safariLink, flightData); //so list the function, the apply meth
 //instead, we use the spread operator as such below
 newBooking.call(safariLink, ...flightData); //spread the array in as args, spread unpacks arrays into individual elements so it makes it possible to use call method and spread the array just as a value
 console.log(safariLink);
+
+//the Bind metod
+const bookSJ = newBooking.bind(safariLink); //the function bookSJ is bound to the newBooking function to safariLink
+const bookKQ = newBooking.bind(kenyaAirways); //this is a new binding for KQ
+bookSJ(234, "ndio kufika");
+bookKQ(255, "haraka hakuna");
+
+const bookKQ23 = newBooking.bind(kenyaAirways, 23); //we can go further and even set the arguments eg flightNum here
+bookKQ23("noma sana"); //it got simpler, so we just need to pass in the name
+
+//Bind with the DOM Event listeners
+
+kenyaAirways.planes = 300;
+kenyaAirways.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector(".buy")
+  .addEventListener("click", kenyaAirways.buyPlane.bind(kenyaAirways)); //the event listener is calling the buyplane function/metod, we
+
+//Partial application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23); //we use null to replace the this keyword here since there is no this application, order of args matters, so we set 0.23 rate in stone and only pass the value later
+
+console.log(addVAT(100));
+
+const highAddTax = (rate) => (value) => value + value * rate;
+
+const partialRate = highAddTax(0.23);
+
+console.log(partialRate(100));
