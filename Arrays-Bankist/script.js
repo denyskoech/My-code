@@ -74,3 +74,49 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+//Slice //this does not mutate the original array, it simply returns a new array, a copy with the extracted elements
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4)); //it begins after position 2 and ends before position 4
+console.log(arr.slice(-2)); //it will start counting from the end of the array, -2 returns the last two elements
+console.log(arr.slice(1, -2)); //starts from index 1 and counts two steps back to start from position 3
+console.log(arr.slice()); // this creates a shallow copy just the spread operator does below
+console.log([...arr]);
+
+//Splice, similar to slice but it changes the original array. So it mutates that array.
+arr.splice(-1); //removes the last element
+arr.splice(1, 2); //the first number is the position and the second number is the number of elements we want to delete in this case, 2 elements starting from position 1
+console.log(arr);
+
+//reverse, this mutates the original array
+
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+
+console.log(arr2);
+console.log(arr2.reverse());
+
+//Concat, does not mutate original arrays
+
+const letters = arr.concat(arr2); // joins two arrays into one
+console.log(letters);
+console.log([...arr, ...arr2]); //similar to using the spread operator, does not matter which of the 2 you use
+
+//Join
+console.log(letters.join('-'));
+
+//ES2022 at metod
+
+const arrAT = [23, 34, 42, 46, 334];
+console.log(arrAT[0]); //old way of extraction
+console.log(arrAT.at(0)); //using at
+
+//getting last array element without at metod
+console.log(arrAT[arrAT.length - 1]);
+console.log(arrAT.slice(-1)[0]);
+console.log(arr.at(-1)); //with at metod
+
+console.log('jonas'.at(0)); //at metod works with strings as well
+console.log('jonas'.at(-1));
