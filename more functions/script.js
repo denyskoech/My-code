@@ -170,3 +170,64 @@ console.log(partialRate(100));
 
 //as an arro function
 (() => console.log("Never gonna run as straight as an arrow"))();
+
+/*Closures */
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    //this is the birthplace of the booker function
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker(); //there are no arguments to pass, this is essesntially call the returned function
+booker(); // at the time of calling this function, the secureBooking function has already been popped off the call stack
+booker(); // by the third call, the count is at 3
+//each time book is called, it increases the count by 1 and the function is popped off the stack and the closure remmebers the count to be 1 so the next function call will be increased to 2
+
+console.dir(booker); //we can observe the closure this way, we can view the preserved variables
+
+//more examples of closures. example 1
+
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 234;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+g();
+f(); //g has to run for f to run
+
+//reassinging f
+h();
+f();
+
+//example 2
+
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000); //1000 is in milliseconds, setTimeout needs two parameters, a function to be executed and the time wait. the code inside this function will be executed after 1 second
+
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+boardPassengers(180, 3);
