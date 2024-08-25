@@ -65,13 +65,11 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
 /////////////////////////////////////////////////
 
@@ -120,3 +118,79 @@ console.log(arr.at(-1)); //with at metod
 
 console.log('jonas'.at(0)); //at metod works with strings as well
 console.log('jonas'.at(-1));
+
+/*forEach loop */
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+//for loop
+
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You have deposited ${movement}`);
+  } else {
+    console.log(`You have withdrawn ${Math.abs(movement)}`); //math.abs removes the - operator
+  }
+}
+
+//forEach loop
+
+movements.forEach(function (movement) {
+  //forEach is a higher order function which requires a callback function to tell it what to do, really dumb
+  if (movement > 0) {
+    console.log(`You have deposited ${movement}`);
+  } else {
+    console.log(`You have withdrawn ${Math.abs(movement)}`);
+  }
+});
+
+//0: function(200) at position zero, it passes in the value 200
+//1: function(200) at position one, it passes in the value 450 etc
+
+//for loop with counter variables
+
+for (const [i, movement] of movements.entries()) {
+  //we use the entries metod to get array of arrays which has index and value, we also destructured it
+  if (movement > 0) {
+    console.log(`Transaction ${i + 1}: You have deposited ${movement}`);
+  } else {
+    console.log(
+      `Transaction ${i + 1}: You have withdrawn ${Math.abs(movement)}`
+    ); //math.abs removes the - operator
+  }
+}
+
+//forEach loop with counter variables
+
+movements.forEach(function (movement, i, arr) {
+  //the order here matters, the first parameter always needs to bethe current element, the second parameter always the current index and the third one always the entire array that we are looping over.
+  if (movement > 0) {
+    console.log(`Transaction ${i + 1}: You have deposited ${movement}`);
+  } else {
+    console.log(
+      `Transaction ${i + 1}: You have withdrawn ${Math.abs(movement)}`
+    ); //math.abs removes the - operator
+  }
+});
+
+//forEach Maps and sets
+
+const currencies = new Map([
+  ['USD', 'United States dollar'], //this block is an entry
+  ['EUR', 'Euro'], //inside an entry we have a key and a value
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function (value, key, map) {
+  // same order as arrays
+  console.log(`${key}: ${value}`);
+});
+
+//sets
+
+const currenciesUnique = new Set(['USD', 'USD', 'EUR', 'KSH', 'USD', 'EUR']);
+
+currenciesUnique.forEach(function (value, _, map) {
+  //_ is a throwaway variable, not necessary, used here because of convention, sets don't have keys, just values
+  console.log(`${value}: ${value}`);
+});
