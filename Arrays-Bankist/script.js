@@ -61,25 +61,25 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements) {
-  containerMovements.innerHTML = ''; //to empty the container
+// const displayMovements = function (movements) {
+//   containerMovements.innerHTML = ''; //to empty the container
 
-  movements.forEach(function (mov, i) {
-    const type = mov > 0 ? 'deposit' : 'withdrawal';
-    const html = `
-        <div class="movements__row">
-          <div class="movements__type movements__type--${type}">${
-      i + 1
-    } ${type}</div>
-          <div class="movements__value">${mov}</div>
-        </div>
-    `;
+//   movements.forEach(function (mov, i) {
+//     const type = mov > 0 ? 'deposit' : 'withdrawal';
+//     const html = `
+//         <div class="movements__row">
+//           <div class="movements__type movements__type--${type}">${
+//       i + 1
+//     } ${type}</div>
+//           <div class="movements__value">${mov}</div>
+//         </div>
+//     `;
 
-    containerMovements.insertAdjacentElement('afterbegin', html);
-  });
-};
+//     containerMovements.insertAdjacentElement('afterbegin', html);
+//   });
+// };
 
-displayMovements(account1.movements);
+// displayMovements(account1.movements);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -214,3 +214,22 @@ currenciesUnique.forEach(function (value, _, map) {
   //_ is a throwaway variable, not necessary, used here because of convention, sets don't have keys, just values
   console.log(`${value}: ${value}`);
 });
+
+/*Map metod */
+
+const eurToUSD = 1.1;
+
+const movementsUSD = movements.map(function (mov) {
+  return mov * eurToUSD;
+}); //creates a new array, we store results in the new array
+
+// arrow function version const movementsUSD = movements.map(mov => mov * eurToUSD);
+
+console.log(movements); //original array not mutated
+console.log(movementsUSD); // it puts the results into a new array
+
+//with for of loop
+
+const movementsUSDFor = [];
+for (const mov of movements) movementsUSDFor.push(mov * eurToUSD);
+console.log(movementsUSDFor);
