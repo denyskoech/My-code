@@ -249,3 +249,9 @@ for (const mov of movements) movementsUSDFor.push(mov * eurToUSD);
 console.log(movementsUSDFor);
 
 /*Filter metod */
+
+const deposits = movements.filter(function (mov) {
+  return mov > 0; //creates a new array of the elements that met this condition in the callback function
+});
+
+console.log(deposits);
