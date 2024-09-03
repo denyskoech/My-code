@@ -81,6 +81,14 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+/*Display the balance */
+
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
+
 /*creating a username */
 
 const createUserNames = function (accs) {
@@ -255,3 +263,28 @@ const deposits = movements.filter(function (mov) {
 });
 
 console.log(deposits);
+
+/*Reduce metod */
+
+const balance = movements.reduce(function (accumulator, element, index) {
+  //the first arg is the accumulator
+  console.log(`Iteration ${index}: ${accumulator}`);
+  return accumulator + element;
+}, 0); //0 here is the initial value of the accumulator, where it starts counting
+
+console.log(balance);
+
+//compare for of to reduce
+
+let balance2 = 0; //the is the accumulator
+
+for (const mov of movements) balance2 += mov; //balance2 = balance2 + mov
+
+// Max value
+
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+
+console.log(max);
