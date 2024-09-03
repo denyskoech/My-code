@@ -61,25 +61,25 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-// const displayMovements = function (movements) {
-//   containerMovements.innerHTML = ''; //to empty the container
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = ''; //to empty the container
 
-//   movements.forEach(function (mov, i) {
-//     const type = mov > 0 ? 'deposit' : 'withdrawal';
-//     const html = `
-//         <div class="movements__row">
-//           <div class="movements__type movements__type--${type}">${
-//       i + 1
-//     } ${type}</div>
-//           <div class="movements__value">${mov}</div>
-//         </div>
-//     `;
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+        <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+        <div class="movements__value">${mov}</div>
+        </div>
+    `;
 
-//     containerMovements.insertAdjacentElement('afterbegin', html);
-//   });
-// };
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
 
-// displayMovements(account1.movements);
+displayMovements(account1.movements);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -233,3 +233,5 @@ console.log(movementsUSD); // it puts the results into a new array
 const movementsUSDFor = [];
 for (const mov of movements) movementsUSDFor.push(mov * eurToUSD);
 console.log(movementsUSDFor);
+
+/*Filter metod */
