@@ -17,22 +17,6 @@ checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
 /**SHIDA 2 */
 
-// const calcAverageHumanAge = function (ages) {
-//   ages
-//     .map(function (i) {
-//       if (i <= 2) return 2 * i;
-//       else return 16 + i * 4;
-//     })
-//     .filter(function (f) {
-//       return f > 18;
-//     })
-//     .reduce(function (acc, r) {
-//       return acc + r;
-//     }, ages[0]);
-// };
-
-// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
-
 const calcAverageHumanAge = function (ages) {
   const dogAge = ages.map(function (age) {
     if (age <= 2) return 2 * age;
@@ -62,3 +46,14 @@ const calcAverageHumanAge = function (ages) {
 const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 
 console.log(avg1);
+
+/**SHIDA 3 */
+
+const calcAverageHumanAgeArrow = ages =>
+  ages
+    .map(i => (i <= 2 ? 2 * i : 16 + i * 4))
+    .filter(f => f >= 18)
+    .reduce((acc, r, i, arr) => acc + r / arr.length, 0);
+const avg2 = calcAverageHumanAgeArrow([5, 2, 4, 1, 15, 8, 3]);
+
+console.log(avg2);
