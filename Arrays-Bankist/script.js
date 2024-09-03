@@ -81,6 +81,20 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+/*creating a username */
+
+const createUserNames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner //creating a new username property in each accounts objects
+      .toLowerCase() //string metod
+      .split(' ') //The split(' ') method tells JavaScript to look for every space in the string and split the string at each space. This creates an array where each element is one of the words from the original string.
+      .map(name => name[0]) //loop over returned array to create a new array of only first letters using an arrow function
+      .join(''); //join the letters
+  });
+};
+
+createUserNames(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
