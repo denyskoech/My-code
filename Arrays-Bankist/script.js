@@ -326,3 +326,14 @@ const totalDepositsUSD = movements
   .reduce((acc, mov) => acc + mov, 0); //reduce was called on the map metod array and the map was called from filter and filter was called from movements array creating a chain
 
 console.log(totalDepositsUSD);
+
+/**Find metod */
+
+const firstWithdrawal = movements.find(mov => mov < 0);
+
+console.log(movements);
+console.log(firstWithdrawal);
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis'); //works well with objects that have similar structures ie keys, this loops through all accounts and searches for a property with the owner of the stated name
+
+console.log(account);
