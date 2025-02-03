@@ -97,3 +97,4 @@ btnHold.addEventListener('click', function () {
 //resetting the game button
 
 btnNew.addEventListener('click', init); //we do not call the function here, anonymous function
+//we love javascript
