@@ -511,9 +511,9 @@ const year1 = 1991;
 //hoisting with functions
 
 console.log(hoisting(3, 2)); //function declarations are hoisted to the top
-console.log(funExp(2, 4)); // function expression, this is simply a variable and this is the TDZ
-console.log(arrowFunc(2, 5)); // function expression, this is simply a variable and this is the TDZ
-console.log(arrowFuncVar(2, 4)); // returns is not a funtion, we are trying to use and undefined function
+// console.log(funExp(2, 4)); // function expression, this is simply a variable and this is the TDZ
+// console.log(arrowFunc(2, 5)); // function expression, this is simply a variable and this is the TDZ
+// console.log(arrowFuncVar(2, 4)); // returns is not a funtion, we are trying to use and undefined function
 
 function hoisting(a, b) {
   return a + b;
@@ -537,13 +537,13 @@ function deleteShopping() {
   console.log("Zimeenda zote");
 }
 
-var f = 1;
+//var f = 1;
 let g = 2;
 const z = 3;
 
-console.log(f === window.f); //returns true because var creates a property in the global window object on the browser
-console.log(g === window.g); //false
-console.log(z === window.z); //false
+// console.log(f === window.f); //returns true because var creates a property in the global window object on the browser
+// console.log(g === window.g); //false
+// console.log(z === window.z); //false
 
 /*The this keyword */
 
